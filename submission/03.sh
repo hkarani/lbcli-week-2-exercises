@@ -4,8 +4,9 @@
 # Step 1: Create a new SegWit address (Bech32)
 NEW_ADDRESS=$(bitcoin-cli -regtest getnewaddress "" bech32)
 
-bitcoin-cli -regtest generatetoaddress 101 "$NEW_ADDRESS"
+MINING_ADDRESS=$(bitcoin-cli -regtest getnewaddress)
 
-bitcoin-cli -regtest generatetoaddress 10 "$(bitcoin-cli -regtest getnewaddress)"
+bitcoin-cli -regtest generatetoaddress 101 "$MINING_ADDRESS"
 
+bitcoin-cli -regtest generatetoaddress 10 "$MINING_ADDRESS"
 echo "$NEW_ADDRESS"
