@@ -3,7 +3,7 @@
 # Return only the Address
 NEW_ADDRESS=$(bitcoin-cli -regtest getnewaddress "" bech32)
 
-AMOUNT=0.001
-bitcoin-cli -regtest sendtoaddress "$NEW_ADDRESS" "$AMOUNT"
+bitcoin-cli -regtest generatetoaddress 101 "$NEW_ADDRESS"
 
+# Output only the new address
 echo "$NEW_ADDRESS"
